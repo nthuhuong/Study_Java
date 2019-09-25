@@ -23,6 +23,7 @@ public class SortIntNumber {
 
 
     public static int[] sortArrayNumber(final int[] arrayNumber) {
+
         if (arrayNumber == null) {
             return null;
         }
@@ -56,14 +57,14 @@ public class SortIntNumber {
 
     @Test
     public void testResultArray() {
-        assertArrayEquals(new int[] {1, 3, 7, 18, 59, 94}, sortArrayNumber(new int[] {3, 59, 7, 94, 1, 18 }),
+        assertArrayEquals(new int[] {0, 1, 3, 7, 18, 59, 94}, sortArrayNumber(new int[] {3, 59, 7, 94, 1, 18, 0 }),
                 "Result is fail" );
     }
 
     @Test
     public void testInputArrayBeChanged() {
         int[] arrInt = {3, 59, 7, 94, 1, 18 };
-        assertArrayEquals(arrInt, sortArrayNumber(arrInt), "Result is fail" );
+        assertArrayEquals(arrInt, sortArrayNumber(arrInt), "Error Input not be changed");
     }
 
     @Test
@@ -87,7 +88,7 @@ public class SortIntNumber {
     @Test
     public void testArrayHaveAllElementSame() {
         assertArrayEquals(new int[] {4, 4, 4, 4, 4, 4}, sortArrayNumber(new int[] {4, 4, 4, 4, 4, 4}),
-                "Error when enter array have all elements same");
+                "Error when enter a array has all elements same");
     }
 
     @Test
