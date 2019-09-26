@@ -45,7 +45,7 @@ public class SortString {
 
         return arrString;
     }
-    
+
     @Test
     public void testResultlArray() {
         assertArrayEquals(new String[] {"1234", "ABCD", "ABCDEF", "Nguyen thi thu huong", "abcd", "nguyen thi thu huong"},
@@ -96,7 +96,15 @@ public class SortString {
 
     @Test
     public void testStringArrayOnlyOneElement() {
-        assertArrayEquals(new String[] {"abc"}, sortArrayString(new String[] {"abc"}), "Error when enter string array only have one element");
+        assertArrayEquals(new String[] {"abc"}, sortArrayString(new String[] {"abc"}),
+                "Error when enter string array only have one element");
+    }
+
+    @Test
+    public void testStringArrayHasElementSpace() {
+        assertArrayEquals(new String[] {" ", " ", "1234", "ABCD", "ABCDEF", "Nguyen thi thu huong", "abcd", "nguyen thi thu huong",},
+                sortArrayString(new String[] {" ", "1234", "abcd", "ABCD", "ABCDEF", "nguyen thi thu huong", " ", "Nguyen thi thu huong"}),
+                "Error when array string has element is space");
     }
 
 }
