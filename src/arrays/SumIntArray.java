@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class SumIntArray {
 
-    public static int sumArray(int[] arrInt) {
+    public static int sumArray(final int[] arrInt) {
 
         int sum = 0;
 

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class AverageIntArray {
 
-    private static int sumArray(int[] arrInt) {
+    private static int sumArray(final int[] arrInt) {
 
         int sum = 0;
 
@@ -17,7 +17,7 @@ public class AverageIntArray {
 
     }
 
-    public static double calculateAverageArray(int[] arrInt) {
+    public static double calculateAverageArray(final int[] arrInt) {
 
         if (arrInt.length == 0) {
             return 0;
