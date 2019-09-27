@@ -28,25 +28,25 @@ public class ArraySpecificValue {
 
     @Test
     public void testArrayOnlyOneElementReturnFail() {
-        assertEquals(false, testArraySpecificValue(new int[] {3},4),
+        assertEquals(false, testArraySpecificValue(new int[] {3}, 4),
                 "Error when enter parameter is array has only one element and number without in array");
     }
 
     @Test
     public void testArrayOnlyOneElementReturnTrue() {
-        assertEquals(true, testArraySpecificValue(new int[] {3},3),
+        assertEquals(true, testArraySpecificValue(new int[] {3}, 3),
                 "Error when enter parameter is array has only one element and number in array");
     }
 
     @Test
     public void testArrayHasNegativeNumberReturnFail() {
-        assertEquals(false, testArraySpecificValue(new int[] {1, -5, 15, 6, 8},-4),
+        assertEquals(false, testArraySpecificValue(new int[] {1, -5, 15, 6, 8}, -4),
                 "Error when enter parameter is array has negative number and negative number without in array");
     }
 
     @Test
     public void tetsArrayHasNegativeNumberReturnTrue() {
-        assertEquals(true, testArraySpecificValue(new int[] {1, -5, 15, 6, 8},-5),
+        assertEquals(true, testArraySpecificValue(new int[] {1, -5, 15, 6, 8}, -5),
                 "Error when enter parameter is array has negative number and negative number has in array");
     }
 
