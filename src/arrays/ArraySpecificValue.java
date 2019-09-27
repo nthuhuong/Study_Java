@@ -21,13 +21,6 @@ public class ArraySpecificValue {
         return false;
     }
 
-//    public static void main(String[] args) {
-//
-//        int[]arrInt = {5, 10, 58, 90, 45, 2, 3};
-//
-//        System.out.println(testArraySpecificValue(arrInt, 4));
-//    }
-
     @Test
     public void testEmptyArray() {
         assertEquals(false, testArraySpecificValue(new int[] {}, 3),"Error when enter parameter is array empty");
