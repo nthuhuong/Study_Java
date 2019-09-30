@@ -1,43 +1,69 @@
 package arrays;
 
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
 public class RemoveSpecificElementArray {
 
-    public static int[] removeSpecificElement(final int[] arrInt, int number) {
+    public static int[] removeSpecificElement(final int[] arrInt, final int number) {
 
-        int index = FindIndexArrayElement.findIndex(arrInt, number);
+        final int index = FindIndexArrayElement.findIndex(arrInt, number);
 
-        //System.out.println(index + "/n");
+        if (index <= -1) {
+            return arrInt;
+        }
 
-        if (index > -1) {
+        final int[] result = new int[arrInt.length - 1];
 
-            int[] result = new int[arrInt.length - 1];
+        for (int i = 0; i < arrInt.length; i++) {
 
-            for (int i = 0; i < arrInt.length; i++) {
-
-                if (i < index) {
-                    result[i] = arrInt[i];
-                }
-
-                if (i > index) {
-                    result[i -1] = arrInt [i];
-                }
-
+            if (i < index) {
+                result[i] = arrInt[i];
             }
 
-            //removeSpecificElement(result, number);
-            return  removeSpecificElement(result, number);
+            if (i > index) {
+                result[i -1] = arrInt [i];
+            }
+
         }
 
-        return arrInt;
+        return removeSpecificElement(result, number);
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void testEmptyArray() {
+        assertArrayEquals(new int[] {}, removeSpecificElement(new int[] {}, 2), "Error When enter empty array");
+    }
 
-        //int[] arrInt = new int[] {5, 6, 2, 4, 8, 1, 10, 2, 2, 7, 44, 45, 20, 2};
-        int[] arrInt = new int[] {5, 6, 4, 8, 1, 10, 7, 44, 45, 20};
-        int[] result = removeSpecificElement(arrInt, 2);
-        for (int i = 0; i< result.length; i++) {
-            System.out.println(result[i]);
-        }
+    @Test
+    public void testRemoveElementsSame() {
+        final int[] expected = new int[] { 5, 6, 4, 8, 1, 10, 7, 44, 45, 20 };
+        final int[] actual = removeSpecificElement(new int[] { 5, 6, 2, 4, 8, 1, 10, 2, 2, 7, 44, 45, 20, 2 }, 2);
+
+        assertArrayEquals(expected, actual, "Wrong specific element removed!");
+    }
+
+    @Test
+    public void testRemoveOnlyEement() {
+        final int[] expected = new int[] { 5, 6, 4, 8, 1, 10, 7, 44, 45, 20 };
+        final int[] actual = removeSpecificElement(new int[] { 5, 6, 2, 4, 8, 1, 10, 7, 44, 45, 20 }, 2);
+
+        assertArrayEquals(expected,actual, "Error when remove only a element of array");
+    }
+
+    @Test
+    public void testRemoveAllElements() {
+        final int[] expected = new int[] {};
+        final int[] actual = removeSpecificElement(new int[] { 5, 5, 5, 5, 5, 5, 5, 5 }, 5);
+
+        assertArrayEquals(expected, actual, "Wrong specific element removed! Expected: " + expected.length + " but actual " + actual.length);
+    }
+
+    @Test
+    public void testRemoveElementNegative() {
+        final int[] expected = new int[] { 4, -5, 2, 3, 8 };
+        final int[] actual = removeSpecificElement(new int[] { 4, -5, -6, 2, 3, 8 }, -6);
+
+        assertArrayEquals(expected, actual,"Wrong specific element removed! Expected: " + expected.length + " but actual " + actual.length);
     }
 }
