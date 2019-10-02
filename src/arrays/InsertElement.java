@@ -5,17 +5,14 @@ import org.junit.jupiter.api.Test;
 
 public class InsertElement {
      public static int[] insertAnElement(final int[] arrInt, final int value, final int position) {
-
          if (position < 0 || position > arrInt.length) {
              return arrInt;
          }
 
          int[] resultArray = new int[arrInt.length + 1];
-
          resultArray[position] = value;
 
          int indexArrInt = -1;
-
          for (int i = 0; i < resultArray.length; i++) {
              indexArrInt++;
 

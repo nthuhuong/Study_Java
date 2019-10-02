@@ -3,14 +3,12 @@ package arrays;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class FindDuplicateValuesOfArray {
+public class FindDuplicateValuesOfArrayInt {
 
-    private static int[] addElementIntoArray(final int[] arrInt, final int value) {
+    private static int[] formatArray(final int[] arrInt, final int count) {
+        final int[] resultArray = new int[count];
 
-        final int[] resultArray = new int[arrInt.length + 1];
-        resultArray[resultArray.length - 1] = value;
-
-        for (int i = 0; i < arrInt.length; i++) {
+        for (int i = 0; i < count; i++) {
             resultArray[i] = arrInt[i];
         }
 
@@ -19,30 +17,39 @@ public class FindDuplicateValuesOfArray {
     }
 
     public static int[] findDuplicate(final int[] arrInt) {
-
         if (arrInt.length == 0) {
 
             return new int[] {};
 
         }
 
-        int[] resultArray = new int[] {};
+        int[] resultArray = new int[arrInt.length];
+        int count = 0;
+        int k = 0;
 
         for (int i = 0; i < arrInt.length - 1; i++) {
 
             for (int j = i + 1; j < arrInt.length; j++) {
 
-                if (arrInt[i] == arrInt[j] && (FindIndexArrayElement.findIndex(resultArray, arrInt[i]) == -1)) {
-                    resultArray = addElementIntoArray(resultArray, arrInt[i]);
+                if (arrInt[i] == arrInt[j]) {
+                    k = 1;
+                    break;
                 }
+
+            }
+
+            if (k == 1 && (FindIndexArrayElement.findIndex(resultArray, arrInt[i]) == -1)) {
+                resultArray[count] = arrInt[i];
+                count++;
+                k = 0;
             }
 
         }
 
-        return resultArray;
+        return formatArray(resultArray, count);
 
     }
-    
+
     @Test
     public void testEmptyArray() {
         int[] expected = new int[] {};
@@ -64,7 +71,7 @@ public class FindDuplicateValuesOfArray {
         int[] expected = new int[] { 5 };
         int[] actual = findDuplicate(new int[] { 5, 5, 5, 5, 5, 5, 5 });
 
-        assertArrayEquals(expected, actual, "Find the duplicate value of array has all elements same was wrong!");
+        assertArrayEquals(expected, actual, "Find the duplicate values of array has all elements same was wrong!");
     }
 
     @Test
@@ -72,15 +79,15 @@ public class FindDuplicateValuesOfArray {
         int[] expected = new int[] {};
         int[] actual = findDuplicate(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 });
 
-        assertArrayEquals(expected, actual, "Find the duplicate value wrong when array not exist duplicate value!");
+        assertArrayEquals(expected, actual, "Find the duplicate values wrong when array not exist duplicate values!");
     }
 
     @Test
     public void testArrayExistDuplicateValue() {
-        int[] expected = new int[] { 4, 7, 3};
-        int[] actual = findDuplicate(new int[] { 4, 5, 6, 4, 7, 8, 9, 3, 7, 4, 3, 3, 4, 10 });
+        int[] expected = new int[] { 4, 7, 3, 10};
+        int[] actual = findDuplicate(new int[] { 4, 5, 6, 4, 7, 8, 9, 3, 7, 4, 10, 3, 3, 4, 10 });
 
-        assertArrayEquals(expected, actual, "Find the duplicate value wrong when array exist duplicate value!");
+        assertArrayEquals(expected, actual, "Find the duplicate values wrong when array exist duplicate values!");
     }
 
 }
