@@ -13,14 +13,11 @@ public class FindDuplicateValuesOfArrayInt {
         }
 
         return resultArray;
-
     }
 
     public static int[] findDuplicate(final int[] arrInt) {
         if (arrInt.length == 0) {
-
             return new int[] {};
-
         }
 
         int[] resultArray = new int[arrInt.length];
@@ -30,12 +27,10 @@ public class FindDuplicateValuesOfArrayInt {
         for (int i = 0; i < arrInt.length - 1; i++) {
 
             for (int j = i + 1; j < arrInt.length; j++) {
-
                 if (arrInt[i] == arrInt[j]) {
                     k = 1;
                     break;
                 }
-
             }
 
             if (k == 1 && (FindIndexArrayElement.findIndex(resultArray, arrInt[i]) == -1)) {
@@ -43,11 +38,9 @@ public class FindDuplicateValuesOfArrayInt {
                 count++;
                 k = 0;
             }
-
         }
 
         return formatArray(resultArray, count);
-
     }
 
     @Test
