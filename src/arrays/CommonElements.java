@@ -84,7 +84,7 @@ public class CommonElements {
     @Test
     public void testOneArrayEnpty() {
         String[] array1 = {};
-        String[] array2 = {"bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong"};
+        String[] array2 = { "bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong" };
         String[] actual = findCommonElements(array1, array2);
 
         assertArrayEquals(new String[] {}, actual, "Find the common elements wrong when has a array is empty!");
@@ -102,7 +102,7 @@ public class CommonElements {
     @Test
     public void testOneArrayNull() {
         String[] array1 = null;
-        String[] array2 = {"bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong"};
+        String[] array2 = { "bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong" };
         String[] actual = findCommonElements(array1, array2);
 
         assertArrayEquals(null, actual, "Find the common elements wrong when enter a array null!");
@@ -119,8 +119,8 @@ public class CommonElements {
 
     @Test
     public void testNotCommonElement() {
-        String[] array1 = {"bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong"};
-        String[] array2 = {"123", "345", "123", "678"};
+        String[] array1 = { "bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong" };
+        String[] array2 = { "123", "345", "123", "678" };
         String[] actual = findCommonElements(array1, array2);
 
         assertArrayEquals(new String[] {}, actual, "Find the common elements wrong when not common element!");
@@ -128,9 +128,9 @@ public class CommonElements {
 
     @Test
     public void testCommonElement() {
-        String[] array1 = {"bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong"};
-        String[] array2 = {"huonghuongkjfk", "kjsdkjks", "bobo", "123456", "56788", "bobo"};
-        String[] expected = {"bobo", "kjsdkjks"};
+        String[] array1 = { "bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong" };
+        String[] array2 = { "huonghuongkjfk", "kjsdkjks", "bobo", "123456", "56788", "bobo" };
+        String[] expected = { "bobo", "kjsdkjks" };
         String[] actual = findCommonElements(array1, array2);
 
         assertArrayEquals(expected, actual, "Find the common elements wrong!");
@@ -138,9 +138,9 @@ public class CommonElements {
 
     @Test
     public void testCommonElementIsNull() {
-        String[] array1 = {"bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong", null};
-        String[] array2 = {"bobo", "huonghuongkjfk", "kjsdkjks", "123456", "56788", null};
-        String[] expected = {"bobo", "kjsdkjks", null};
+        String[] array1 = { "bobo", "huonghuong", "kjsdkjks", "Nguyen Thi Thu Huong", null };
+        String[] array2 = { "bobo", "huonghuongkjfk", "kjsdkjks", "123456", "56788", null };
+        String[] expected = { "bobo", "kjsdkjks", null };
         String[] actual = findCommonElements(array1, array2);
 
         assertArrayEquals(expected, actual, "Find the common elements wrong when array hold elements null!");
@@ -148,9 +148,9 @@ public class CommonElements {
 
     @Test
     public void testAllCommonElements() {
-        String[] array1 = {null, null, null};
-        String[] array2 = {null, null, null};
-        String[] expected = {null};
+        String[] array1 = { null, null, null };
+        String[] array2 = { null, null, null };
+        String[] expected = { null };
         String[] actual = findCommonElements(array1, array2);
 
         assertArrayEquals(expected, actual, "Find the common elements wrong when 2 array are the same!");

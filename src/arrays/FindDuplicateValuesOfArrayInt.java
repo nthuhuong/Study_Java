@@ -5,6 +5,20 @@ import org.junit.jupiter.api.Test;
 
 public class FindDuplicateValuesOfArrayInt {
 
+    public static int findIndex(final int[] arrInt, final int number, int elements) {
+        if (arrInt.length == 0) {
+            return -1;
+        }
+
+        for (int i = 0; i < elements; i++) {
+            if (number == arrInt[i]) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     private static int[] formatArray(final int[] arrInt, final int count) {
         final int[] resultArray = new int[count];
 
@@ -22,21 +36,29 @@ public class FindDuplicateValuesOfArrayInt {
 
         int[] resultArray = new int[arrInt.length];
         int count = 0;
-        int k = 0;
+        boolean isFound = false;
 
         for (int i = 0; i < arrInt.length - 1; i++) {
-
             for (int j = i + 1; j < arrInt.length; j++) {
                 if (arrInt[i] == arrInt[j]) {
-                    k = 1;
+                    isFound = true;
                     break;
                 }
             }
 
-            if (k == 1 && (FindIndexArrayElement.findIndex(resultArray, arrInt[i]) == -1)) {
-                resultArray[count] = arrInt[i];
-                count++;
-                k = 0;
+            if (isFound) {
+                isFound = false;
+
+                if (count == 0) {
+                    resultArray[count] = arrInt[i];
+                    count++;
+                    continue;
+                }
+
+                if (findIndex(resultArray, arrInt[i], count) == -1) {
+                    resultArray[count] = arrInt[i];
+                    count++;
+                }
             }
         }
 
@@ -65,6 +87,14 @@ public class FindDuplicateValuesOfArrayInt {
         int[] actual = findDuplicate(new int[] { 5, 5, 5, 5, 5, 5, 5 });
 
         assertArrayEquals(expected, actual, "Find the duplicate values of array has all elements same was wrong!");
+    }
+
+    @Test
+    public void testArrayHasAllElementsAreZero() {
+        int[] expected = new int[] { 0 };
+        int[] actual = findDuplicate(new int[] { 0, 0, 0, 0, 0, 0, 0 });
+
+        assertArrayEquals(expected, actual, "Find the duplicate values of array was wrong when all elements are zero!");
     }
 
     @Test
