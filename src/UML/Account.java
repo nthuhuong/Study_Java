@@ -47,7 +47,8 @@ public class Account {
         }
 
         another.balance += amount;
-        return this.balance -= amount;
+        this.balance -= amount;
+        return this.balance;
     }
 
     public String toString() {
