@@ -1,15 +1,16 @@
 package UML;
 
 public class Circle {
-    private double radius = 1.0;
-    private String color = "red";
+    private double radius;
+    private String color;
 
     public Circle() {
-
+        this(1.0);
     }
 
     public Circle(double r) {
         this.radius = r;
+        this.color = "red";
     }
 
     public double getRadius() {
@@ -32,6 +33,6 @@ public class Circle {
         if (! (other instanceof Circle)) return false;
 
         Circle circle = (Circle) other;
-        return this.color == circle.color && this.radius == circle.radius;
+        return this.color.equals(circle.color) && this.radius == circle.radius;
     }
 }

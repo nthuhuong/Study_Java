@@ -99,7 +99,6 @@ public class Time {
         }
 
         hour ++;
-
         return this;
     }
 
@@ -126,6 +125,6 @@ public class Time {
     }
 
     private static boolean isVerify(int hour, int minute, int second) {
-        return (hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59 && second >= 0 && second <= 59);
+        return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59 && second >= 0 && second <= 59;
     }
 }

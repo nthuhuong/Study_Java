@@ -3,11 +3,10 @@ package UML;
 public class Account {
     private String id;
     private String name;
-    private int balance = 0;
+    private int balance;
 
     public Account(String id, String name) {
-        this.id = id;
-        this.name = name;
+       this(id, name, 0);
     }
 
     public Account(String id, String name, int balance) {
@@ -62,6 +61,6 @@ public class Account {
         if (! (obj instanceof Account)) return false;
 
         Account account = (Account) obj;
-        return this.balance == account.balance && this.name == account.name && this.id == account.id;
+        return this.balance == account.balance && this.name.equals(account.name) && this.id.equals(account.id);
     }
 }

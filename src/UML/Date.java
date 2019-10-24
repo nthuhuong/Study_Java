@@ -6,7 +6,7 @@ public class Date {
     private int year;
 
     public Date(int day, int month, int year) {
-        if (!isVerify(day, month, year)) {
+        if (! isVerify(day, month, year)) {
             throw new IllegalArgumentException("Date is not valid!");
         }
 
@@ -40,7 +40,7 @@ public class Date {
     }
 
     public void setDay(int day, int month, int year) {
-        if (!isVerify(day, month, year)) {
+        if (! isVerify(day, month, year)) {
             throw new IllegalArgumentException("day/moth/year is not valid!");
         }
 

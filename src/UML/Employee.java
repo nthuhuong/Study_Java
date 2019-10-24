@@ -57,6 +57,6 @@ public class Employee {
         if (! (other instanceof Employee)) return false;
 
         Employee employee = (Employee) other;
-        return this.id == employee.id && this.firstName == employee.firstName && this.lastName == employee.lastName && this.salary == employee.salary;
+        return this.id == employee.id && this.firstName.equals(employee.firstName) && this.lastName.equals(employee.lastName) && this.salary == employee.salary;
     }
 }

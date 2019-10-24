@@ -53,6 +53,6 @@ public class InvoiceItem {
         if (! (other instanceof InvoiceItem)) return false;
 
         final InvoiceItem invoiceItem = (InvoiceItem) other;
-        return this.unitPrice == invoiceItem.unitPrice && this.qty == invoiceItem.qty && this.desc == invoiceItem.desc && this.id == invoiceItem.id ;
+        return this.unitPrice == invoiceItem.unitPrice && this.qty == invoiceItem.qty && this.desc.equals(invoiceItem.desc) && this.id.equals(invoiceItem.id);
     }
 }
