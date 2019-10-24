@@ -42,7 +42,8 @@ public class Employee {
     }
 
     public int raiseSalary(int percent) {
-        return this.salary = this.salary + this.salary * percent / 100;
+        this.salary = this.salary + this.salary * percent / 100;
+        return this.salary;
     }
 
     @Override
