@@ -1,8 +1,8 @@
 package inheritance;
 
 public class Shape {
-    String color;
-    boolean filled;
+    private String color;
+    private boolean filled;
 
     public Shape() {
         this("red", true);
@@ -35,15 +35,5 @@ public class Shape {
 
     public double getPerimeter() {
         return 0.0;
-    }
-
-    @Override
-    public String toString() {
-        return null;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        return false;
     }
 }

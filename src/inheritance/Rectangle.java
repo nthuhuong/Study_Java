@@ -1,8 +1,8 @@
 package inheritance;
 
 public class Rectangle extends Shape {
-    double width;
-    double length;
+    private double width;
+    private double length;
 
     Rectangle() {
         this(1.0, 1.0);
@@ -48,7 +48,7 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return "Rectangle [width = " + this.width + ", length = " + this.length + ", color = " + this.color + ", filled = " + this.filled + "]";
+        return "Rectangle [width = " + this.width + ", length = " + this.length + ", color = " + this.getColor() + ", filled = " + this.isFilled() + "]";
     }
 
     @Override
@@ -58,6 +58,6 @@ public class Rectangle extends Shape {
         if (! (another instanceof Rectangle)) return false;
 
         final Rectangle rectangle = (Rectangle) another;
-        return this.length == rectangle.length && this.width == rectangle.length && this.color.equals(rectangle.color) && this.filled == rectangle.filled;
+        return this.length == rectangle.length && this.width == rectangle.length && this.getColor().equals(rectangle.getColor()) && this.isFilled() == rectangle.isFilled();
     }
 }

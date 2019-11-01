@@ -1,7 +1,5 @@
 package inheritance;
 
-import sun.lwawt.macosx.CImage;
-
 public class Circle extends Shape {
     private double radius;
     private static final float PI = 3.14F;
@@ -40,7 +38,7 @@ public class Circle extends Shape {
 
     @Override
     public String toString() {
-        return "Circle [radius = " + this.radius + ", color = " + this.color + ", filled = " + this.filled + "]";
+        return "Circle [radius = " + this.radius + ", color = " + this.getColor() + ", filled = " + this.isFilled() + "]";
     }
 
     @Override
@@ -50,8 +48,6 @@ public class Circle extends Shape {
         if (! (object instanceof Circle)) return false;
 
         Circle circle = (Circle) object;
-        return this.filled == circle.filled && this.color.equals(circle.color) && this.radius == circle.radius;
+        return this.isFilled() == circle.isFilled() && this.getColor().equals(circle.getColor()) && this.radius == circle.radius;
     }
-
-
 }

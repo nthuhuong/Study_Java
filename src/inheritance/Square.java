@@ -14,38 +14,27 @@ public class Square extends Rectangle {
     }
 
     public double getSide() {
-        return this.length;
+        return this.getWidth();
     }
 
     public void setSide(final double side) {
-        this.length = side;
-        this.width = side;
+        this.setLength(side);
+        this.setWidth(side);
     }
 
     @Override
     public void setWidth(double width) {
-        this.width = width;
-        this.length = width;
+        this.setWidth(width);
+
     }
 
     @Override
     public  void setLength(double length) {
-        this.width = length;
-        this.length = length;
+        this.setLength(length);
     }
 
     @Override
     public String toString() {
-        return "Square [side = " + this.width + ", color = " + this.color + ", filled = " + this.filled + "]";
-    }
-
-    @Override
-    public boolean equals(Object another) {
-        if(another == null) return false;
-
-        if (! (another instanceof Square)) return false;
-
-        final Square square = (Square) another;
-        return this.width == square.length && this.color.equals(square.color) && this.filled == square.filled;
+        return "Square [side = " + this.getSide() + ", color = " + this.getColor() + ", filled = " + this.isFilled() + "]";
     }
 }
