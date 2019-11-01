@@ -29,11 +29,18 @@ public class Shape {
         this.filled = filled;
     }
 
-    public double getArea() {
-        return 0.0;
+    @Override
+    public String toString() {
+        return "Shape [color = " + this.getColor() + ", filled = " + this.isFilled() + "]";
     }
 
-    public double getPerimeter() {
-        return 0.0;
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) return false;
+
+        if (! (object instanceof Shape)) return false;
+
+        Shape shape = (Shape) object;
+        return this.filled == shape.filled && this.color.equals(shape.color);
     }
 }

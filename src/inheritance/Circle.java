@@ -26,12 +26,10 @@ public class Circle extends Shape {
         this.radius = radius;
     }
 
-    @Override
     public double getArea() {
         return Math.pow(this.radius, 2) * PI;
     }
 
-    @Override
     public double getPerimeter() {
         return this.radius * 2 * PI;
     }
