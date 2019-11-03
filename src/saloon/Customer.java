@@ -37,7 +37,7 @@ public class Customer {
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(final Object object) {
         if (object == null) return false;
 
         if (! (object instanceof Customer)) return false;

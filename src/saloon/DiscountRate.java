@@ -13,7 +13,7 @@ public final class DiscountRate {
 
     }
 
-    public static double getServiceDiscountRate(String type) {
+    public static double getServiceDiscountRate(final String type) {
         if (type == null) return 0.0;
 
         if (type.equals("Premium")) {
@@ -31,7 +31,7 @@ public final class DiscountRate {
         return 0.0;
     }
 
-    public static double getProductDiscountRate(String type) {
+    public static double getProductDiscountRate(final String type) {
         if (type == null) return 0.0;
 
         if (type.equals("Premium") || type.equals("Gold") || type.equals("Silver")) {
